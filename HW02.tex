@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage{amsmath,amsthm,amsfonts,microtype,amssymb}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{mathpazo}
+\usepackage{tikz-cd}
+\usepackage{geometry}
+    \geometry{top=1in}
+
+\usepackage{hyperref}
+    \hypersetup{%
+        colorlinks=true,
+        linkcolor=red,
+        filecolor=red,      
+        urlcolor=red,
+        bookmarks=true,
+        pdfpagemode=FullScreen,
+    }
+
+
+\title{Homework 02 \\ Basepoints and CW structures}
+\author{Algebraic Topology - Winter 2021}
+\date{Due: \textbf{January 28, 2021, 11:59 pm}}
+
+\begin{document}
+\pagenumbering{gobble}
+\maketitle
+
+\begin{enumerate}
+    \item Let $(X,x)$ and $(Y,y)$ be pointed topological spaces. Prove that 
+        \begin{align*}
+            \pi_1(X \times Y, (x,y)) \cong \pi_1(X,x) \times \pi_1(Y,y).
+        \end{align*}
+        
+    \item  For a topological space $X$, define the \emph{fundamental groupoid}, denoted $\Pi_1(X)$, to be the category whose objects are points in $X$ and whose morphisms are path-homotopy classes of paths i.e. for $x,y \in X$ define
+    \begin{align*}
+        \Pi_1(x,y) := \left\{ [\gamma] \mid \gamma: [0,1] \to X, \partial_0 \gamma = x, \partial_1 \gamma = y \right\}.
+    \end{align*}
+    \begin{enumerate}
+        \item A groupoid is a category in which every morphism is invertible. 
+        Show that $\Pi_1(X)$ is a groupoid.
+    \end{enumerate}
+    Let $\mathbf{Cat}$ denote the category whose objects are categories and whose morphisms are functors. 
+    \begin{enumerate}[resume]
+        \item Show that $\Pi_1$ naturally extends to a functor $\Pi_1: \mathbf{Top} \to \mathbf{Cat}$.
+    \end{enumerate}
+    Let $x$ be a point in $X$. We can think of the fundamental ``group'', $\pi_1(X,x)$, as the full subcategory of $\Pi_1(X)$ with exactly one object $x$.
+    \begin{enumerate}[resume]
+        \item Show that if $X$ is path-connected, then the categories $\Pi_1(X)$ and $\pi_1(X,x)$ are equivalent.
+    \end{enumerate}
+    Thus, the fundamental groupoid is a basepoint-independent variant of the fundamental group. 
+\end{enumerate}
+For the following questions, you do not have to provide completely rigorous proofs. It's enough to draw sufficiently descriptive pictures.
+\begin{enumerate}[resume]
+    \item 
+    Let $n$ be a positive integer. 
+        \begin{enumerate}
+            \item Construct a CW structure for $S^1$ with $n$ 0-cells and $n$ 1-cells. 
+            \item Construct a CW structure for $S^n$ with only two cells total.
+            \item Construct a CW structure for $S^3$ two 0-cells, two 1-cells, two 2-cells, and two 3-cells. (Optional: Can you generalize this to $S^{n}$?)
+            \item Construct a CW complex with one 0-cell, one 1-cell, one 2-cell, and one 3-cell that is homotopy equivalent to $S^3$. (Optional: Can you generalize this to $S^{2n-1}$?)
+            \item Let $v, e, f$ be positive integers with $v - e + f = 2$. Construct a CW structure for $S^2$ having $v$ 0-cells, $e$ 1-cells, and $f$ 2-cells.
+        \end{enumerate}
+    
+    \item 
+    Let $X$ be a topological space that can be given a CW structure with a finite number of cells. Let $n_i$ denote the number of cells in dimension $i$ in this CW structure. The \emph{Euler characteristic} of $X$ is defined as 
+    \begin{align*}
+        \chi(X) := \sum_{i \in \mathbb{N}} (-1)^i n_i.
+    \end{align*}
+    Assume that the Euler characteristic is well-defined i.e. does not depend on the choice of the CW structure. Further assume that the Euler characteristic is a homotopy invariant. 
+
+    \begin{enumerate}
+        \item Compute the Euler characteristic of spheres and genus $g$ surfaces. 
+        \item Does there exist a CW complex with one 0-cell, one 1-cell, one 2-cell, \dots, one $2n$-cell that is homotopy equivalent to $S^{2n}$? 
+        \item What can you say about homeomorphisms between the various spheres and genus $g$ surfaces, using just the Euler characteristic?
+    \end{enumerate}
+    
+\end{enumerate}
+
+
+\section*{Suggested exercises for practice from Hatcher}
+
+\begin{description}
+    \item[Pg. 18] 2
+    \item[Pg. 19] 9, 15, 16
+    \item[Pg. 38] 1, 2, 3
+    \item[Pg. 39] 10, 11, 15, 17
+\end{description}
+
+\end{document}

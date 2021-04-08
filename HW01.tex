@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage{amsmath,amsthm,amsfonts,microtype,amssymb}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{mathpazo}
+\usepackage{tikz-cd}
+\usepackage{geometry}
+\usepackage{hyperref}
+
+
+\title{Homework 01 \\ Fundamentals of Fundamental Groups}
+\author{Algebraic Topology - Winter 2021}
+\date{Due: \textbf{January 21, 2021, 11:59 pm}}
+
+\begin{document}
+\pagenumbering{gobble}
+\maketitle
+
+In the following questions, all maps are continuous and all homotopies are basepoint preserving.
+\begin{enumerate}
+    \item Show that \textit{path-homotopy} is an equivalence relation.
+    \item Let $(X,x)$ be a pointed topological space.
+    
+    \begin{enumerate}
+        \item  
+        Let $c_x$ denote the constant path at $x$ and let $\gamma$ be a loop in $X$ based at $x$.
+        Explicitly construct a reparametrization $\varphi: [0,1] \to [0,1]$ such that $\gamma \cdot c_x = \gamma \circ \varphi$.
+        \item  
+        Let $\gamma_1$, $\gamma_2$, $\gamma_3$ be loops in $X$ based at $x$.
+        Explicitly construct a reparametrization $\varphi: [0,1] \to [0,1]$ such that $(\gamma_1 \cdot \gamma_2) \cdot \gamma_3 = (\gamma_1 \cdot (\gamma_2 \cdot \gamma_3)) \circ \varphi$.
+        \item \emph{Justify} your answers by drawing pictures.
+    \end{enumerate}
+    
+    
+    \item 
+        Let $X$ be a topological space and let $A$ be a subspace of $X$. Let $a_0$ be a point in $A$. We say that a map $r: X \to A$ is a \emph{retraction} if $r(a) = a$ for all $a \in A$.
+        \begin{enumerate}
+            \item What can you say about $\pi_1(r) : \pi_1(X, a_0) \to \pi_1(A, a_0)$ if $r$ is a retraction?
+        \end{enumerate}
+        We can post-compose $r$ with the inclusion of $A$ in $X$ to get a map $r' : X \to X$. We say that $r$ is a \emph{deformation retraction} if it is a retraction and $r'$ is homotopic to the identity map.
+        \begin{enumerate}[resume]
+            \item What can you say about $\pi_1(r) : \pi_1(X, a_0) \to \pi_1(A, a_0)$ if $r$ is a deformation retraction?
+            \item 
+            Come up with a concrete non-trivial example of a retraction which is not a deformation retraction, where non-trivial means that $A \neq \{ a_0 \}$. You do not have to provide proofs for this part.
+        \end{enumerate}
+        
+        
+    \item Show that homotopy equivalences satisfy the \emph{2-out-of-3 property}:\footnote{See also \url{https://ncatlab.org/nlab/show/category+with+weak+equivalences\#definition}.} given spaces $(X,x)$, $(Y,y)$, and $(Z,z)$ and maps $f:(X,x) \to (Y,y)$, and $g:(Y,y) \to (Z,z)$, if any two of $f$, $g$, and $g \circ f$ are homotopy equivalences, then so is the third.
+    \begin{center}
+        \begin{tikzcd}
+            (X,x)   
+            \arrow[r, "f", swap] 
+            \arrow[rr, "g \circ f", bend left]
+            &
+            (Y,y)
+            \arrow[r, "g",swap]  
+            &
+            (Z,z)
+        \end{tikzcd}
+    \end{center}
+    % \item  Let $X$ be a topological space. Define the \emph{fundamental groupoid}, denoted $\Pi_1(X)$, to be the category whose objects are points in $X$ and whose morphisms are path-homotopy classes of paths. 
+    % \begin{align*}
+    %     \Pi_1(x,y) := \left\{ [\gamma] \mid \gamma: [0,1] \to X, \partial_0 \gamma = x, \partial_1 \gamma = y \right\}.
+    % \end{align*}
+    % \begin{enumerate}
+    %     \item Recall that a groupoid is a category all of whose morphisms are invertible. 
+    %     Verify that $\Pi_1(X)$ is a groupoid.
+    % \end{enumerate}
+    % Let $x$ be a point in $X$. We can think of the fundamental group, $\pi_1(X,x)$, as the category with exactly one object $x$ and with morphisms $\Pi_1(x,x)$.
+    % \begin{enumerate}[resume]
+    %     \item Show that if $X$ is path-connected, then the categories $\Pi_1(X)$ and $\pi_1(X,x)$ are equivalent.
+    % \end{enumerate}
+    % Thus, the fundamental groupoid is a basepoint-independent construction which is equivalent to the fundamental group. 
+\end{enumerate}
+
+\end{document}

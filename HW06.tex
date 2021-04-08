@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{amsmath,amsthm,amsfonts,microtype,amssymb}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{mathpazo}
+\usepackage{tikz-cd}
+\usepackage{geometry}
+\geometry{top=1in}
+\usepackage{float}
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=blue,
+  urlcolor=blue,
+  bookmarks=true,
+  pdfpagemode=FullScreen,
+}
+
+
+\title{Homework 06 \\ Chain Complexes \& Singular Homology}
+\author{Algebraic Topology - Winter 2021}
+\date{Due: \textbf{March 11, 2021, 11:59 pm}}
+
+\begin{document}
+\pagenumbering{gobble}
+\maketitle
+
+\begin{enumerate}
+    \item For each of the rings below, compute the homology (up to isomorphism) of the following chain complex over $R$ concentrated in degrees 0 and 1,
+    \begin{align*}
+        0 \to R^2 \overset{\partial_1}{\longrightarrow} R^2 \to 0,
+    \end{align*}
+    where $\partial_1 = \begin{bmatrix} 2 & 0 \\ 3 & 1\end{bmatrix}$ in the standard bases.
+    \begin{enumerate}
+        \item $ R = \mathbb{Q}$,
+        \item $ R = \mathbb{Z}/p \mathbb{Z}$ where $p$ is a prime number,
+        \item $ R = \mathbb{Z}$.
+    \end{enumerate}
+    For part (c) express your answers as a (direct sum of) cyclic group(s).
+    \item Prove that if $X$ is a point then its singular homology is given by
+    \begin{align*}
+        H_i(X; \mathbb{Z}) \cong 
+        \begin{cases}
+        \mathbb{Z} & \mbox{ if } i = 0, \\
+        0 & \mbox{otherwise.}
+        \end{cases}
+    \end{align*}
+    
+    \item Let $n$ be a non-negative integer. Let $(C_\bullet, d_\bullet)$ be a chain complex over a field $\mathbb{F}$ such that $C_i$ is a finite-dimensional vector space for each $ 0 \le i \le n$ and is 0 for $ i < 0$ or $i > n$. 
+    \begin{align*}
+        0 \to C_n \overset{d_n}{\longrightarrow} C_{n-1}
+        \overset{d_{n-1}}{\longrightarrow} C_{n-2}
+        \overset{d_{n-2}}{\longrightarrow} 
+        \dots
+        \overset{d_{2}}{\longrightarrow} C_1
+        \overset{d_{1}}{\longrightarrow} C_0
+        \to 0
+    \end{align*}
+    Show that 
+    \begin{align*}
+        \sum \limits_{i=0}^n (-1)^i\dim H_i (C_\bullet) =        
+        \sum \limits_{i=0}^n (-1)^i\dim C_i.
+    \end{align*}
+    Thus, either of the two sides can be used to define the Euler characteristic of $(C_\bullet, d_\bullet)$.
+    
+    % \item
+    % Let $X$ be a topological space.
+    % Show that if $\{ X_i \}_{i \in I}$ are the path-connected components of $X$ then for all $j \in \mathbb{Z}$
+    % \begin{align*}
+    %     H_j(X; \mathbb{Z}) \cong \bigoplus \limits_{i \in I} H_j(X_i; \mathbb{Z}).
+    % \end{align*}
+    % (Be careful with your arguments for this question.)
+
+    
+\end{enumerate}
+\end{document}

@@ -1,0 +1,135 @@
+\documentclass{article}
+\usepackage{amsmath,amsthm,amsfonts,microtype,amssymb}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{mathpazo}
+\usepackage{tikz-cd}
+\usepackage{geometry}
+    \geometry{top=1in}
+
+\usepackage{hyperref}
+    \hypersetup{%
+        colorlinks=true,
+        linkcolor=blue,
+        filecolor=blue,      
+        urlcolor=blue,
+        bookmarks=true,
+        pdfpagemode=FullScreen,
+    }
+
+
+\title{Homework 04 \\ Fundamental group of the circle}
+\author{Algebraic Topology - Winter 2021}
+\date{Due: \textbf{February 11, 2021, 11:59 pm}}
+
+\begin{document}
+\pagenumbering{gobble}
+\maketitle
+
+\begin{enumerate}
+    \item 
+    Let $(X,x_0)$, $(Y,y_0)$ be path-connected spaces in $\mathbf{Top}_*$.
+    Let $\ell: (X,x_0) \to (Y,y_0)$ be a covering map. For a path $\gamma$ in $Y$ starting at $y_0$, denote by $\widetilde{\gamma}$ a lift of $\gamma$ starting at $x_0$.
+    \begin{enumerate}
+        \item
+        % Prove the uniqueness of path lifting for covering spaces i.e. for every path $\gamma$ there exists a unique lift $\widetilde{\gamma}$. You are free to use the proof given in Hatcher, just make the arguments rigorous using the
+        \href{https://en.wikipedia.org/wiki/Lebesgue\%27s_number_lemma}{Lebesgue's number lemma}.
+        \item Prove that the ``unwinding'' map 
+        \begin{align*}
+            \pi_1(Y,y_0) & \to \ell^{-1}(y_0) \\ 
+            [\gamma] &\to \widetilde{\gamma}(1)
+        \end{align*}
+        is surjective.
+    \end{enumerate}
+    
+    \item 
+    Let $X$, $Y$ be non-empty spaces in $\mathbf{Top}$. A map $\ell: X \to Y$ is said to be a \emph{local homeomorphism} if every $x \in X$ has an open neighborhood $U \subseteq X$ such that $\ell |_U : U \to \ell(U)$ is a homeomorphism, where $\ell(U)$ is open in $Y$ and is given the subspace topology. 
+    \begin{enumerate}
+        \item Show that every covering map is a local homeomorphism.
+        \item Show that the converse of the above statement is not true.
+    \end{enumerate}
+    
+    \item 
+    The real projective space $\mathbb{RP}^n$ is defined as 
+    \begin{align*}
+        \mathbb{RP}^n := S^n / (x_0, x_1, \dots, x_n) \sim (-x_0, -x_1, \dots, -x_n)
+    \end{align*}
+    for all $(x_0, x_1, \dots, x_n) \in S^n$, where $n$ is a positive integer.
+    \begin{enumerate}
+        \item Show that $\mathbb{RP}^1 \cong S^1$.
+        \item Show that the natural quotient map $\ell: S^n \to \mathbb{RP}^n$ is a covering map.
+        \item What is the map $\pi_1(\ell):\pi_1(S^1) \to \pi_1(\mathbb{RP}^1)$, where we identify both $\pi_1(S^1)$ and $\pi_1(\mathbb{RP}^1)$ with $\mathbb{Z}$?
+        \item Compute $\pi_1(\mathbb{RP}^n)$.
+        \item Show that $\mathbb{RP}^n \not \cong S^n$ for $n > 1$.
+        \item In a previous homework, you constructed a CW structure on $S^2$ with two 0-cells, two 1-cells, and two 2-cells. Using that, construct a CW structure on $\mathbb{RP}^2$ with one 0-cell, one 1-cell, and one 2-cell. Be careful with the gluing maps! (Optional: Generalize this to higher dimensions.)
+    \end{enumerate}
+    
+    \newpage
+    \item (Optional) For this question, assume that all paths and all homotopies are smooth and all loops are based at $(1,0)$. 
+    
+    We know that $\mathbb{R}^2 \setminus \{ 0 \}$ deformation retracts onto $S^1 = \{(x,y) : x^2 + y^2 = 1 \}$ and hence $\pi_1(\mathbb{R}^2 \setminus \{ 0 \}) \cong \mathbb{Z}$.
+    We can \emph{almost} prove this fact directly using just calculus.  
+    The ``unwinding'' map $\pi_1(\mathbb{R}^2 \setminus \{ 0 \}) \rightarrow \mathbb{Z}$ is supposed to send a loop $\gamma$ to the \emph{number of counterclockwise rotations} made by $\gamma$ around the origin. We'll construct this map using line integrals. 
+    
+    We start by defining $\theta$ to be the angle that the vector $(x,y)$ makes with the positive $x$-axis in the counterclockwise direction.
+    For vectors a with positive $x$-coordinate, this can be defined as
+    \begin{align*}
+        \theta(x,y) := \arctan(y/x).
+    \end{align*}
+    It is not possible to extend $\theta$ continuously to all of $\mathbb{R}^2 \setminus \{ 0 \}$ but its derivatives can be extended!
+    \begin{enumerate}
+        \item 
+        Define the following formal expression
+        \begin{align*}
+            d \theta := \dfrac{\partial \theta}{\partial x} dx + \dfrac{\partial \theta}{\partial y} dy.
+        \end{align*}
+        Show that 
+        \begin{align*}
+            d \theta = \dfrac{x dy - y dx}{r^2},
+        \end{align*}
+        where $r = \sqrt{x^2 + y^2}$. 
+        Note that $d \theta$ is well-defined over all of $\mathbb{R}^2 \setminus \{0\}$.
+    \end{enumerate}
+    The line integral
+    $\oint _{\gamma} d \theta$
+    measures the change in the angle $\theta$ along the path $\gamma$. Hence, the \emph{winding number} of $\gamma$, which is defined as
+    \begin{align*}
+        w(\gamma) := \dfrac{1}{2 \pi} \oint _{\gamma} d \theta,
+    \end{align*}
+    measures the number of counterclockwise rotations made by $\gamma$ around the origin.
+    \begin{enumerate}[resume]
+        \item Show that
+        \begin{align*}
+            w(\gamma_n) = n,
+        \end{align*}
+        where $n$ is an integer and $\gamma_n$ is the loop defined as $\gamma_n(t) = (\cos (2 \pi n t), \sin (2 \pi n t))$.
+        \item Using \href{https://en.wikipedia.org/wiki/Kelvin-Stokes_theorem}{Stoke's theorem}, show that if there is a path homotopy connecting $\gamma$ to $\gamma'$ then 
+        \begin{align*}
+            w(\gamma) = w(\gamma'),
+        \end{align*}
+        where $\gamma$ and $\gamma'$ are paths in $\mathbb{R}^2 \setminus \{ 0 \}$.
+        \item Using the fact that line integrals are invariant under reparametrization, argue that
+        \begin{align*}
+            w(\gamma \cdot \gamma') = w(\gamma) + w(\gamma'),
+        \end{align*}
+        where $\gamma$ and $\gamma'$ are loops in $\mathbb{R}^2 \setminus \{ 0 \}$.
+        \item 
+        Assume that $\pi_1(\mathbb{R}^2 \setminus \{ 0 \})$ is isomorphic to the group of smooth loops modulo smooth homotopies.
+        Then the above arguments \emph{almost} prove that the map $w: \pi_1(\mathbb{R}^2 \setminus \{ 0 \}) \to \mathbb{Z}$ is a group isomorphism.
+        What is missing? It is this last missing part that requires the theory of covering spaces in an essential way.
+    \end{enumerate}
+    
+    
+    % \item Fibrations and higher homotopy groups of covering spaces.
+
+\end{enumerate}
+
+
+\section*{Suggested exercises for practice from Hatcher}
+
+\begin{description}
+    \item[Pg. 38] 5, 6, 7
+    \item[Pg. 39] 16, 17
+\end{description}
+
+\end{document}
